@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Cadrastro dos clientes</title>
+    <style>
+        label{
+            color: rgb(255, 168, 183);
+            text-align: center;
+        }
+        h1{
+            color: rgb(247, 140, 158);
+            text-align: center;
+            font-family: cursive;
+            font-size: 25px;
+        }
+        body{
+            background-color: cyan;
+        }
+    </style>
+    <script>
+        function pesquisarCEP(){
+        const cep = document.getElementById["cep"].value
+        const link = 'https://viacep.com.br/ws' + cep + '/json/?callback?=preencherEndereço'
+        var script = document.createElement("script")
+        script.src = link 
+        document.body.appendChild(script)
+
+    }
+    function preencherEndereço(conteudo){
+        document.getElementById("rua").value = conteudo.logradouro
+        document.getElementById("cidade").value = conteudo.localidade
+        document.getElementById("lado ímpar").value = conteudo.complemento
+        document.getElementById("bairro").value = conteudo.localidade
+        document.getElementById("Unidade").value = conteudo.bairro
+    }
+    </script>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>Cadrastro dos clientes</h1>
+    </main>
+        <form>
+            <label for="nome"> Nome:</label>
+            <input type="text" id="nome" placeholder="Insira o seu nome" required class="Texto_id"> 
+
+            <label for="CPF"> CPF:</label>
+            <input type="text" id="CPF" placeholder="999.999.999.99" required class="Texto_id"> 
+
+            <label for="RG"> RG:</label>
+            <input type="text" id="RG" placeholder="12.345.678-9"12.345.678-9 class="Texto_id"> 
+
+            <label for="dataNasci"> Data de nascimento:</label>
+            <input type="date" id="dataNasci" placeholder="01/01/01" required class="Texto_id">
+
+            <label for="telefone"> Telefone:</label>
+            <input type="tel" id="telefone" placeholder="Ex:(99)999-99999" required class="Texto_id"> 
+
+            <label for="email"> E-mail:</label>
+            <input type="email" id="email" placeholder="Ex:@gmail.com" required class="Texto_id"> 
+
+            <label for="CEP"> CEP:</label>
+            <input type="text" id="CEP" placeholder="XXXXX-XXX" onblur= "pesquisarCEP(this.value)" class="Texto_id"> 
+            <p></p>
+
+            <label for="rua"> Rua:</label>
+            <input type="text" id="rua" placeholder="A rua de onde você mora" class="Texto_id">
+
+            <label for="bairro"> Bairro:</label>
+            <input type="text" id="bairro" placeholder="O bairro que você mora" class="Texto_id"> 
+
+            <label for="cidade"> Cidade:</label>
+            <input type="text" id="cidade" placeholder="A cidade onde está" required class="Texto_id">
+
+            <label for="estado"> Estado:</label>
+            <input type="text" id="estado" placeholder="O estado onde você está morando" class="Texto_id">  
+
+            <label for="senha"> Senha:</label>
+            <input type="text" id="senha" placeholder="Porfavor, use números, letras e simbolos para uma senha forte, caso queira usar espaço use _ ou - " class="Texto_id">    
+
+
+            <input type="submit" value="Enviar Cadrastro"  class="btn_enviar">
+
+        </form>
+    <footer>
+
+    </footer>
+</body>
+</html>
+
